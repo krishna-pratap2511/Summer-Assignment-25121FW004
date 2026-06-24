@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+void removeDuplicates(char *str) {
+    int seen[256] = {0};  // ASCII tracker
+    int k = 0;
+    char result[100];
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!seen[(unsigned char)str[i]]) {
+            seen[(unsigned char)str[i]] = 1;
+            result[k++] = str[i];
+        }
+    }
+    result[k] = '\0';
+    printf("After removing duplicates: %s\n", result);
+}
+
+int main() {
+    char str[100];
+    printf("Enter string: ");
+    scanf("%s", str);
+    removeDuplicates(str);
+    return 0;
+}
